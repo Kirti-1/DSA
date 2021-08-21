@@ -27,13 +27,13 @@ public class Solution {
             return -1;
         }
         idx++;
-        int smaller = firstIndex(input, x); // from end
+        int smaller = firstIndex(input, x); // generating ans from end 
         idx--;
         if(input[idx] == x){
             return idx;
         }return smaller;
         
-        // from beg
+        // generating ans while iterating from beg
         /*
         if(idx == input.length){
             return -1;

@@ -166,13 +166,13 @@ public class Solution {
     // Find a Node in Linked List
 
     /*
-    Sample Input 1 :
+    Sample Input :
     2
     3 4 5 2 6 1 9 -1
     5
     10 20 30 40 50 60 70 -1
     6
-    Sample Output 1 :
+    Sample Output :
     2
     -1
     */
@@ -192,13 +192,13 @@ public class Solution {
 
     // Append Last N nodes to First
     /*
-    Sample Input 1 :
+    Sample Input :
     2
     1 2 3 4 5 -1
     3
     10 20 30 40 50 60 -1
     5
-    Sample Output 1 :
+    Sample Output :
     3 4 5 1 2
     20 30 40 50 60 10
     */
@@ -224,5 +224,31 @@ public class Solution {
         }
         return head;
 	}
-
+    // Remove Duplicates from Linked List - 
+    /*
+    Input format : 
+    The first and the only line of each test case or query contains the elements(in ascending order) of the singly linked list separated by a single space.
+    Sample Input :
+    2
+    10 20 30 40 50 -1
+    10 10 10 10 -1
+    Sample Output :
+    10 20 30 40 50
+    10
+    */
+    public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head){
+        LinkedListNode prevNode = head;
+        LinkedListNode temp = head;
+        LinkedListNode nextNode = head;
+        while(nextNode!=null){
+            if(prevNode.data == nextNode.data){
+                temp = nextNode;
+                nextNode = nextNode.next;
+            }else{
+                temp.next = null;
+                prevNode.next = nextNode;
+            }
+        }
+        return head;
+    }
 }

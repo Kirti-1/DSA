@@ -57,3 +57,26 @@ class DriverCode{
        return root; 
     }
 }
+
+/********************************************************************/
+
+class Solution {
+    static int sum = 0;
+    public static int sumOfNodes(TreeNode<Integer> root){
+
+        sum = root.data;
+        for(int i=0;i<root.children.size();i++){
+            sum += sumOfNodes(root.children.get(i));
+        }
+        return sum;
+    }
+
+}
+public class SumOfNodes{
+    static Scanner scn = new Scanner(System.in);
+    public static void main(String[] args){
+        TreeNode<Integer> root = DriverCode.takeInputLevelWise();
+        System.out.println(Solution.sumOfNodes(root));
+        DriverCode.printLevelWise(root);
+    }
+}
